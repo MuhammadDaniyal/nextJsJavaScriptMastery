@@ -14,11 +14,10 @@ const Navbar = () => {
     const [toggleDropdown, setToggleDropdown] = useState(false)
 
     useEffect(() => {
-        const setProvider = async () => {
+        (async () => {
             const response = await getProviders()
             setProviders(response)
-        }
-        setProvider()
+        })()
     }, [])
 
 
@@ -42,7 +41,7 @@ const Navbar = () => {
                         session?.user ? (
                             <>
                                 <div className='flex gap-3 md:gap-5'>
-                                    <Link href={'create-prompt'} className='black_btn'>
+                                    <Link href={'/create-prompt'} className='black_btn'>
                                         Create Post
                                     </Link>
                                     <button type="button" onClick={signOut} className='outline_btn'>
@@ -51,8 +50,8 @@ const Navbar = () => {
                                     <Link href={'/profile'}>
                                         <Image
                                             src={session?.user.image}
-                                            width={37}
-                                            height={37}
+                                            width={35}
+                                            height={35}
                                             className='rounded-full'
                                             alt='profile'
                                         />
