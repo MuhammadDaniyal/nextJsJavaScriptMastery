@@ -41,11 +41,12 @@ const Feed = () => {
   }
 
   useEffect(() => {
-    (async () => {
+    const fetchPrompts = async () => {
       const response = await fetch('/api/prompt')
       const data = await response.json()
       setPromptPost(data)
-    })()
+    }
+    fetchPrompts()
   }, [])
 
   return (
